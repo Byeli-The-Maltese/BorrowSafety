@@ -8,6 +8,26 @@
     <IsRoslynComponent>true</IsRoslynComponent>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>BorrowSafety</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Daniel Vibbert</Authors>
+    <Description>
+      Enables access to the Borrow T ref struct in C#, which can prevent
+      references and other data from escaping the stack. public instance methods and
+      public instance properties from the wrapped class T are forwarded to the closed
+      Borrow T via a source-generated extension block.
+    </Description>
+    <PackageTags>
+      borrow;ref-struct;source-generator;memory;ownership;lifetime
+    </PackageTags>
+    <RepositoryUrl>
+      https://github.com/Byeli-The-Maltese/BorrowSafety
+    </RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
