@@ -18,7 +18,7 @@
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>BorrowSafety</PackageId>
-    <Version>0.1.8</Version>
+    <Version>0.1.9</Version>
     <Authors>Daniel Vibbert</Authors>
     <Description>
       Enables access to the Borrow T ref struct in C#, which can prevent
