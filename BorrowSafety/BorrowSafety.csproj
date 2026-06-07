@@ -1,7 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\BorrowSafety.CodeGen\BorrowSafety.CodeGen.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="all"/>
+    <ProjectReference Include="..\BorrowSafety.CodeGen\BorrowSafety.CodeGen.csproj">
+      <OutputItemType>Analyzer</OutputItemType>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeAssets>analyzers</IncludeAssets>
+      <PrivateAssets>content; build</PrivateAssets>
+    </ProjectReference>
+    <None Include="../BorrowSafety.CodeGen/bin/Release/netstandard2.0/BorrowSafety.CodeGen.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false"/>
   </ItemGroup>
 
   <PropertyGroup>
@@ -12,7 +18,7 @@
 
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>BorrowSafety</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.1.8</Version>
     <Authors>Daniel Vibbert</Authors>
     <Description>
       Enables access to the Borrow T ref struct in C#, which can prevent
