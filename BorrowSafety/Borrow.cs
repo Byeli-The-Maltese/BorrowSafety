@@ -6,7 +6,9 @@ namespace BorrowSafety;
 
 /// <summary>
 /// A borrow instance that wraps the specified strong reference and cannot escape
-/// to the heap because it is a ref struct.
+/// to the heap because it is a ref struct. The source generator included with this
+/// project will forward public instance properties and public instance methods from
+/// the wrapped strong reference onto this borrow.
 /// </summary>
 /// <param name="secret">
 /// The strong reference that will be stored in this stack-bound object.
