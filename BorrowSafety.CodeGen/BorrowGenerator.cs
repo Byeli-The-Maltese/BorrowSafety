@@ -25,9 +25,10 @@ public sealed class BorrowGenerator : IIncrementalGenerator
             
         static INamedTypeSymbol? GetBorrowTarget(GeneratorSyntaxContext context, CancellationToken ct)
         {
-            GenericNameSyntax syntax = (GenericNameSyntax)context.Node; SymbolInfo info = context.SemanticModel.GetSymbolInfo(syntax);
+            GenericNameSyntax syntax = (GenericNameSyntax)context.Node;
+            SymbolInfo info = context.SemanticModel.GetSymbolInfo(syntax);
             if (info.Symbol is not INamedTypeSymbol symbol) return null;
-            INamedTypeSymbol? borrowType = context.SemanticModel.Compilation.GetTypeByMetadataName("BorrowSemantics.Borrow1");
+            INamedTypeSymbol? borrowType = context.SemanticModel.Compilation.GetTypeByMetadataName("BorrowSafety.Borrow`1");
             if (borrowType is null) return null;
             if (!SymbolEqualityComparer.Default.Equals(symbol.ConstructedFrom, borrowType)) return null;
             if (symbol.TypeArguments.Length != 1) return null;

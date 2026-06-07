@@ -25,13 +25,13 @@ internal static class BorrowEmitter
             }
         }
         
-        public StringBuilder Tab4 => sb.Append(" ");
+        public StringBuilder Tab4 => sb.Append("    ");
     }
         
     public static string Emit(INamedTypeSymbol type)
     {
         StringBuilder sb = new();
-        string ns = type.ContainingNamespace.IsGlobalNamespace ? "BorrowSemantics.Generated" : type.ContainingNamespace.ToDisplayString();
+        string ns = type.ContainingNamespace.IsGlobalNamespace ? "BorrowSafety.Generated" : type.ContainingNamespace.ToDisplayString();
         string extensionClassName = BorrowGenerator.SafeName(type) + "_BorrowExtensions";
         string fullyQualifiedFormatTypeName = type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
         ImmutableArray<ITypeParameterSymbol> openTypeParameters = CollectOpenTypeParameters(type);
@@ -44,7 +44,7 @@ internal static class BorrowEmitter
         sb.NextLine = null;
         sb.NextLine = $"public static partial class {extensionClassName}";
         sb.NextLine = "{";
-        sb.Tab4.NextLine = $"extension{typeParameters}(BorrowSemantics.Borrow<{fullyQualifiedFormatTypeName}> borrow)";
+        sb.Tab4.NextLine = $"extension{typeParameters}(BorrowSafety.Borrow<{fullyQualifiedFormatTypeName}> borrow)";
         if (!openTypeParameters.IsEmpty)
             AppendConstraints(sb, openTypeParameters);
         sb.Tab4.NextLine = "{";

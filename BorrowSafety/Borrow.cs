@@ -24,7 +24,7 @@ where T : class
     /// Allows the automatically forwarded bindings to access the wrapped strong reference.
     /// </summary>
     [EditorBrowsable(EditorBrowsableState.Never)]
-    public T Unlock__Unsafe([CallerFilePath] string path = "")
+    public T Unlock_Unsafe([CallerFilePath] string path = "")
         => authentic
         ? path.EndsWith(".g.cs")
             ? secret

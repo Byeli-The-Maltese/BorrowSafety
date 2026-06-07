@@ -15,7 +15,7 @@ internal static class XmlRenderer
         string[] lines = xml!.Split('\n');
         foreach (string line in lines)
         {
-            sb.Append(" /// ");
+            sb.Append("        /// ");
             sb.AppendLine(line.TrimEnd());
         }
     }
